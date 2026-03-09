@@ -21,10 +21,12 @@ if img is None:
     sys.exit()
 
 img_small = cv.resize(img, (0, 0), fx=0.5, fy=0.5) #이미지 크기를 반으로 감소
+#그대로 이어붙이면 너무 커서 사진 사이즈를 1/4로 줄임
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY) #이미지를 흑백으로 변환
 gray_small = cv.resize(gray, (0, 0), fx=0.5, fy=0.5) #흑백으로 변환한 이미지 크기를 반으로 감소
+#그대로 이어붙이면 너무 커서 사진 사이즈를 1/4로 줄임
 
-# 원본 이미지는 3채널이므로, 그레이스케일 이미지를 3채널로 변환하여 원본과 연결
+# 원본 이미지는 BGR 3채널인데, 흑백 이미지는 1채널이므로 흑백 이미지의 픽셀값을 복사해서 32채널로 만들어 원본과 구조를 맞춰줬음
 gray_3ch = cv.cvtColor(gray_small, cv.COLOR_GRAY2BGR)
 combined = np.hstack((img_small, gray_3ch))
 
@@ -51,7 +53,7 @@ import cv2 as cv
 import sys
 
 brush_size = 5 # 초기값 5로 설정
-drawing = False # 계속 그리고 있는지 여부를 확인할 변수
+drawing = False # 클릭한 상태에서 이동할때 그려져야 하므로 스위치 역할인 drawing을 변수로 사용함
 
 def draw_on_image(event, x, y, flags, param):
     global drawing, brush_size
@@ -178,7 +180,7 @@ if img is None:
     print('soccer.jpg를 찾을 수 없습니다!')
     sys.exit()
 
-img_original = img.copy()  # 원본 이미지 백업
+img_original = img.copy()  # 원본 이미지 백업 r키를 눌렀을때 초기화 되어야 하므로
 
 # 윈도우 생성 및 마우스 콜백 등록
 cv.namedWindow('image')
