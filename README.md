@@ -5,6 +5,8 @@
  - cv.cvtColor() 함수를 이용해 이미지를 그레이스케일로 변환
  - np.hstack() 함수를 이용해 원본 이미지와 그레이스케일 이미지를 가로로 연결하여 출력
  - cv.imshow()와 cv.waitKey()를 사용해 결과를 화면에 표시하고, 아무 키나 누르면 창이 닫히도록 할 것
+
+한줄 요약 - 원본 이미지를 흑백(그레이스케일)으로 변환한 뒤, 두 이미지를 가로로 나란히 이어 붙여 비교 출력하는 과제입니다.
 <img width="1436" height="506" alt="1번 문제" src="https://github.com/user-attachments/assets/60f2b5d4-2218-4aad-8672-a2dcfbe94580" />
 
 과제 1번 전체 코드
@@ -44,6 +46,8 @@ cv.destroyAllWindows()
  - 붓 크기는 최소 1, 최대 15로 제한
  - 좌클릭=파란색, 우클릭=빨간색, 드래그로 연속 그리기
  - q 키를 누르면 영상 창이 종료
+
+한줄 요약 - 마우스로 이미지 위에 그림을 그리고, 키보드를 이용해 붓의 크기를 자유롭게 조절할 수 있는 페인팅 기능 구현 과제입니다.
 <img width="1436" height="980" alt="2번 문제" src="https://github.com/user-attachments/assets/6779d771-ea3a-4e8f-8eb6-ddc4062a1e2f" />
 
 과제 2번 전체 코드
@@ -127,6 +131,7 @@ cv.destroyAllWindows()# 프로그램 종료 후 모든 창 닫기
  - r 키를 누르면 영역 선택을 리셋하고 처음부터 다시 선택
  - s 키를 누르면 선택한 영역을 이미지 파일로 저장
 
+한줄 요약 - 마우스 드래그로 원하는 관심 영역(ROI)을 지정해 잘라내고, 이를 따로 저장하거나 초기화할 수 있는 영역 추출 과제입니다.
 <img width="1436" height="980" alt="3번 문제" src="https://github.com/user-attachments/assets/2939b9d5-d71c-41e5-a48b-fa087342d110" />
 
 과제 3번 전체 코드
