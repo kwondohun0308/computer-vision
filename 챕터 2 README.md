@@ -7,7 +7,7 @@
  - cv2.calibrateCamera()를 사용하여 카메라 내부 행렬k와 왜곡계수를 구함
  - cv2.undistort()를 사용하여 왜곡 보정한 결과를 시각화
 
-한줄 요약 - 
+한줄 요약 - OpenCV를 활용해 여러 장의 체크보드 이미지로부터 카메라 파라미터를 추정하고, 이를 바탕으로 렌즈 왜곡을 보정하는 카메라 캘리브레이션 과제
 <img width="1347" height="649" alt="1" src="https://github.com/user-attachments/assets/fc9c8a25-4451-4a3d-a236-28a405cd0093" />
 
 
@@ -173,7 +173,7 @@ cv2.destroyAllWindows()
  - 회전과 동시에 크기를 0.8로 조절
  - 그 결과를 x축 방향으로 +80px, y축 방향으로 -40px만큼 평행이동
 
-한줄 요약 - 
+한줄 요약 - 단일 이미지의 중심을 기준으로 회전(30도)과 축소(0.8배)를 적용한 뒤, 지정된 좌표(+80, -40)만큼 평행이동 시키는 복합적인 기하학적 변환(Affine Transformation) 과제
 <img width="2385" height="836" alt="2" src="https://github.com/user-attachments/assets/a28e326e-0844-4992-a16b-5a0288ba2bb6" />
 
 과제 2번 전체 코드
@@ -231,7 +231,7 @@ cv2.destroyAllWindows()
  - ROI Painting, Frog, Teddy 각각에 대해 평균 disparity와 평균 depth를 계산
  - 세 ROI 중 어떤 영역이 가장 가까운지, 어떤 영역이 가장 먼지 해석
 
-한줄 요약 - 
+한줄 요약 - 좌우 카메라 이미지의 시차(Disparity)를 계산해 깊이(Depth) 지도를 생성하고, 특정 객체들(Painting, Frog, Teddy) 간의 상대적인 원근을 비교 및 분석하는 스테레오 비전 과제
 <img width="1438" height="1155" alt="3" src="https://github.com/user-attachments/assets/dcb5a45e-8342-4ca3-bf1c-3d5b6f6d568c" />
 
 
