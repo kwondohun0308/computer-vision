@@ -377,6 +377,7 @@ print(f"FARTHEST ROI: {farthest_roi}")
 # -----------------------------
 # 시각화 전용 복사본을 만든다.
 # disparity가 0 이하인 값은 무효값이므로 NaN으로 바꿔 통계 계산에서 제외한다.
+# 이유로는 블록매칭 알고리즘이 좌우 이미지에서 동일한 패턴을 찾지 못했거나 화면 밖으로 벗어난 영역일경우 0이나 음수값을 반환하기 때문
 disp_tmp = disparity.copy()
 disp_tmp[disp_tmp <= 0] = np.nan
 
@@ -412,6 +413,7 @@ if np.any(valid_mask):
     depth_valid = depth_map[valid_mask]
 
     # depth 역시 백분위 기반으로 정규화해 극단값의 영향을 줄인다.
+	# 5 95를 쓰는건 스테레오 매칭 결과에는 필연적으로 빛 반사나 무늬가 없는 영역 때문에 노이즈가 섞이게 됩니다. 만약 절대적인 min, max를 사용해 색상을 정규화하면, 이 한두 개의 극단적인 에러 픽셀 때문에 전체 컬러맵이 죽어버려서 제대로 된 형태를 알아볼 수 없게 됩니다.
     z_min = np.percentile(depth_valid, 5)
     z_max = np.percentile(depth_valid, 95)
 
